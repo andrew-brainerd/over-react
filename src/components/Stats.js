@@ -15,6 +15,7 @@ export default class Stats extends Component {
         }
 
         this.hostname = "https://over-react-backend.herokuapp.com";
+        this.hostname = "http://localhost:5000";
     }
 
     componentDidMount() {
@@ -30,12 +31,9 @@ export default class Stats extends Component {
     }
 
     getStats = async() => {
-        console.log('Getting User Stats');
+        console.log('Getting User Stats for ' + this.props.userId);
 
         const response = await fetch(this.hostname + '/api/stats/' + this.props.userId);
-
-        console.log("Response: ", response);
-
         const body = await response.json();
 
         if (response.status !== 200) {
