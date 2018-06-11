@@ -12,7 +12,7 @@ export default class Profile extends Component {
             portrait: null
         }
 
-        this.hostname = "https://over-react-backend.herokuapp.com"
+        this.hostname = "https://over-react-backend.herokuapp.com";
     }
 
     componentDidMount() {

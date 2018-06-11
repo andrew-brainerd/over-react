@@ -14,7 +14,7 @@ export default class Stats extends Component {
             topHeroes: null
         }
 
-        this.hostname = "https://over-react-backend.herokuapp.com"
+        this.hostname = "https://over-react-backend.herokuapp.com";
     }
 
     componentDidMount() {
