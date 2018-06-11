@@ -14,6 +14,9 @@ export default class App extends Component {
     return (
       <Router>
         <Switch>
+          <Route exact path='/' render={(props) => (
+            <ProfilePage {...props} userId="Boone-11892" />
+          )}/>
           <Route path='/profile/:id' component={ProfilePageLoader} />
         </Switch>
       </Router>
