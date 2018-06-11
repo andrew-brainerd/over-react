@@ -26,7 +26,7 @@ export default class Profile extends Component {
     }
 
     getProfile = async() => {
-        console.log('Getting User Profile');
+        console.log('Getting User Profile for ' + this.props.userId);
 
         const response = await fetch(this.hostname + '/api/profile/' + this.props.userId);
         const body = await response.json();

@@ -4,13 +4,11 @@ import './App.css';
 
 export default class App extends Component {
   render() {
+    console.log("Props ID: " + this.props.userId);
+
     return (
       <div className="profileList grid randomBackground">
-        {/* <Profile userId="HunkuChunku-2221" /> */}
-        <Profile userId="Boone-11892" />
-        {/* <Profile userId="Thristy-1451" /> */}
-        {/* <Profile userId="Smeedge-1302" /> */}
-        {/* <Profile userId="hscooby249-1171" /> */}
+        <Profile userId={this.props.userId} />
       </div>
     );
   }
