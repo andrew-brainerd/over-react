@@ -13,6 +13,8 @@ export default class Stats extends Component {
             stats: null,
             topHeroes: null
         }
+
+        this.hostname = "https://over-react-backend.herokuapp.com"
     }
 
     componentDidMount() {
@@ -30,7 +32,7 @@ export default class Stats extends Component {
     getStats = async() => {
         console.log('Getting User Stats');
 
-        const response = await fetch('/api/stats/' + this.props.userId);
+        const response = await fetch(this.hostname + '/api/stats/' + this.props.userId);
 
         console.log("Response: ", response);
 

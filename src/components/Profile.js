@@ -11,6 +11,8 @@ export default class Profile extends Component {
             level: null,
             portrait: null
         }
+
+        this.hostname = "https://over-react-backend.herokuapp.com"
     }
 
     componentDidMount() {
@@ -26,7 +28,7 @@ export default class Profile extends Component {
     getProfile = async() => {
         console.log('Getting User Profile');
 
-        const response = await fetch('/api/profile/' + this.props.userId);
+        const response = await fetch(this.hostname + '/api/profile/' + this.props.userId);
         const body = await response.json();
 
         if (response.status !== 200) {
