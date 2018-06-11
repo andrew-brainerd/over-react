@@ -1,15 +1,22 @@
 import React, { Component } from 'react';
-import Profile from './components/Profile';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import ProfilePage from './components/ProfilePage';
 import './App.css';
+
+const ProfilePageLoader = ({ match }) => (
+  <div className="statsPage">
+    <ProfilePage userId={match.params.id} />
+  </div>
+)
 
 export default class App extends Component {
   render() {
-    console.log("Props ID: " + this.props.userId);
-
     return (
-      <div className="profileList grid randomBackground">
-        <Profile userId={this.props.userId} />
-      </div>
+      <Router>
+        <Switch>
+          <Route path='/profile/:id' component={ProfilePageLoader} />
+        </Switch>
+      </Router>
     );
   }
 }
