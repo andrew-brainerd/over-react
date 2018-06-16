@@ -15,7 +15,6 @@ export default class Profile extends Component {
         }
 
         this.hostname = "https://over-react-backend.herokuapp.com";
-        this.hostname = "http://localhost:5000";
     }
 
     componentDidMount() {

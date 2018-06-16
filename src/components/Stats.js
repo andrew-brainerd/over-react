@@ -16,7 +16,6 @@ export default class Stats extends Component {
         }
 
         this.hostname = "https://over-react-backend.herokuapp.com";
-        this.hostname = "http://localhost:5000";
     }
 
     componentDidMount() {
@@ -33,8 +32,7 @@ export default class Stats extends Component {
     }
 
     componentWillReceiveProps(nextProps) {
-        if (this.props.userId !== nextProps.userId)
-        {
+        if (this.props.userId !== nextProps.userId) {
             this.getStats(nextProps.userId)
                 .then(res => this.setState({ 
                     username: res.username,
