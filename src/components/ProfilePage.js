@@ -1,18 +1,21 @@
 import React, { Component } from 'react';
 import Profile from './Profile';
-import Header from './common/Header';
+import Stats from './Stats';
 
 export default class ProfilePage extends Component {
-  render() {
-    console.log("Props ID: " + this.props.userId);
-
-    return (
-      <div>
-        <Header />
-        <div className="grid">
-          <Profile userId={this.props.userId} />
-        </div>
-      </div>
-    );
-  }
+    render() {
+        console.clear();
+        console.log(`Profile Page for User ID: ${this.props.userId}`);
+        
+        return (
+            <div>
+                <div className="grid">
+                    <Profile userId={this.props.userId}>
+                        <Stats userId={this.props.userId} gameMode="Quickplay" count='3' />
+                        <Stats userId={this.props.userId} gameMode="Competitive" count='3' />
+                    </Profile>
+                </div>
+            </div>
+        );
+    }
 }
