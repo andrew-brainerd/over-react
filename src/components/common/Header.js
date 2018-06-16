@@ -1,18 +1,21 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
 
-const Header = () => {
-    return (
-        <nav>
-            <NavLink to="/" activeClassName="active">Home</NavLink>
-            {" | "}
-            <NavLink to="/collin" activeClassName="active">Collin</NavLink>
-            {" | "}
-            <NavLink to="/alex" activeClassName="active">Alex</NavLink>
-            {" | "}
-            <NavLink to="/kurtis" activeClassName="active">Kurtis</NavLink>
-        </nav>
-    );
+export default class Header extends Component {
+    render() {
+        return (
+            <nav>
+                <NavLink to="/" activeClassName="active">Home</NavLink>
+                {" | "}
+                <NavLink to="/profile/Smeedge-1302" activeClassName="active">Collin</NavLink>
+                {" | "}
+                <NavLink to="/profile/hscooby249-1171" activeClassName="active">Alex</NavLink>
+                {" | "}
+                <NavLink to="/profile/Thristy-1451" activeClassName="active">Kurtis</NavLink>
+                {" | "}
+                <NavLink to="/profile/Boone-11892" activeClassName="active">Andy</NavLink>
+            </nav>
+        );
+      }
+    
 };
-
-export default Header;
