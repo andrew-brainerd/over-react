@@ -11,42 +11,56 @@ export default class Stats extends Component {
             level: null,
             portrait: null,
             stats: null,
-            topHeroes: null
+            topHeroes: null,
+            userId: this.props.userId
         }
 
         this.hostname = "https://over-react-backend.herokuapp.com";
     }
 
     componentDidMount() {
-        this.getStats()
+        this.getStats(this.props.userId)
             .then(res => this.setState({ 
                 username: res.username,
                 level: res.level,
                 portrait: res.portrait,
-                stats: res.stats
+                stats: res.stats,
+                userId: this.props.userId
             }))
             .then(res => this.getTopHeroes(this.props.count))
             .catch(err => console.log(err));
     }
 
-    getStats = async() => {
-        console.log('Getting User Stats');
+    componentWillReceiveProps(nextProps) {
+        if (this.props.userId !== nextProps.userId) {
+            this.getStats(nextProps.userId)
+                .then(res => this.setState({ 
+                    username: res.username,
+                    level: res.level,
+                    portrait: res.portrait,
+                    stats: res.stats,
+                    userId: nextProps.userId
+                }))
+                .then(res => this.getTopHeroes(nextProps.count))
+                .catch(err => console.log(err));
+        }    
+    }
 
-        const response = await fetch(this.hostname + '/api/stats/' + this.props.userId);
+    getStats = async(userId) => {
+        console.log(`Getting User Stats for ${userId}`);
 
-        console.log("Response: ", response);
-
+        const response = await fetch(`${this.hostname}/api/stats/${userId}`);
         const body = await response.json();
 
         if (response.status !== 200) {
-            throw Error('Failed to fetch user stats | ' + body.message);
+            throw Error(`Failed to fetch user stats | ${body.message}`);
         }
 
         return body;
     }
 
     getTopHeroes(count) {
-        console.log('Getting Top Heroes for ' + this.props.gameMode);
+        console.log(`Getting Top Heroes for ${this.props.gameMode}`);
 
         var topHeroesList = [];
         var topHeroCount = 0;
