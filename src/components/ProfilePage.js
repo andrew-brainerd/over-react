@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Profile from './Profile';
+import StatControls from './StatControls';
 import Stats from './Stats';
 
 export default class ProfilePage extends Component {
@@ -11,6 +12,7 @@ export default class ProfilePage extends Component {
             <div>
                 <div className="profile-grid">
                     <Profile userId={this.props.userId}>
+                        <StatControls />
                         <Stats userId={this.props.userId} gameMode="Quickplay" count='3' />
                         <Stats userId={this.props.userId} gameMode="Competitive" count='3' />
                     </Profile>

@@ -1,0 +1,23 @@
+.player-stats-container .SettingsSelect-container {
+    margin: 15px 15px 15px 0;
+}
+
+.player-stats-container .SettingsSelect-label {
+    display: none;
+}
+
+.player-stats-container .SettingsSelect-select {
+    display: inline-block;
+    left: 0;
+    right: 0;
+    top: -10px;
+}
+
+.player-stats-container .SettingsSelect-item {
+    width: 250px;
+}
+
+
+.player-stats-container .SettingsSelect-icon_container {
+    left: 200px;
+}
