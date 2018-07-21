@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { hostname } from '../config/server'
-import loader from '../img/loading_simple_blue.png';
+import Loader from './common/Loading';
 import '../css/Profile.css';
 
 export default class Profile extends Component {
@@ -11,7 +11,7 @@ export default class Profile extends Component {
             username: null,
             level: null,
             levelString: null,
-            portrait: loader,
+            portrait: <Loader altText="Player Portrait" />,
             userId: this.props.userId,
         }
     }
@@ -65,15 +65,15 @@ export default class Profile extends Component {
     
     render() {
         return (
-            <div className="playerProfile">
-                <div className="playerPortrait">
+            <div className="player-profile">
+                <div className="player-portrait">
                     <img src={this.state.portrait} alt="Player Profile" />
                 </div>
-                <div className="playerInfo">
-                    <div className="playerName">{this.state.username}</div>
-                    <div className="playerLevel">{this.state.levelString}</div>
+                <div className="player-info">
+                    <div className="player-name">{this.state.username}</div>
+                    <div className="player-level">{this.state.levelString}</div>
                 </div>
-                <div className="playerStatsContainer">
+                <div className="player-stats-container">
                     {this.props.children}
                 </div>
             </div>

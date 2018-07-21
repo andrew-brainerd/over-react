@@ -1,0 +1,7 @@
+.overwatch-select-container {
+    max-width: 600px;
+}
+
+.overwatch-select-container .SettingsSelect-label {
+    font-size: 1em;
+}

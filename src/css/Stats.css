@@ -1,27 +1,8 @@
-.playerStatsHeader {
-    color: whitesmoke;
-    font-size: 0.7em;
-    margin: 25px 0 -5px 5px;
-}
-
-.playerStats {
-    display: inline-block;
-    width: 50%;
-}
-
-.playerTopHeroesList {
+.player-top-heroes-list {
     list-style: none;
     margin: 20px auto;
 }
 
-.playerTopHeroesList .hero {
+.player-top-heroes-list .hero {
     transition: 0.2s ease all;
-}
-
-@media screen and (max-width: 700px) {
-    .playerStatsHeader {
-        font-size: 0.6em;
-        margin: 25px 0 -5px 5px;
-        text-align: center;
-    }
 }
