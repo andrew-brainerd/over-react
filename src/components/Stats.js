@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { hostname } from '../config/server'
 import Hero from './Hero';
+import Loader from './common/Loading';
 import '../css/Stats.css';
 
 export default class Stats extends Component {
@@ -12,7 +13,7 @@ export default class Stats extends Component {
             level: null,
             portrait: null,
             stats: null,
-            topHeroes: null,
+            topHeroes: <Loader altText="Player Stats" />,
             userId: this.props.userId
         }
     }
@@ -34,16 +35,19 @@ export default class Stats extends Component {
         if (this.props.userId !== nextProps.userId ||
             this.props.gameMode !== nextProps.gameMode ||
             this.props.statType !== nextProps.statType) {
-            this.getStats(nextProps.userId)
-                .then(res => this.setState({ 
-                    username: res.username,
-                    level: res.level,
-                    portrait: res.portrait,
-                    stats: res.stats,
-                    userId: nextProps.userId
-                }))
-                .then(res => this.getTopHeroes(nextProps.count))
-                .catch(err => console.log(err));
+                this.setState({
+                    topHeroes: <Loader altText="Player Stats" />
+                });
+                this.getStats(nextProps.userId)
+                    .then(res => this.setState({ 
+                        username: res.username,
+                        level: res.level,
+                        portrait: res.portrait,
+                        stats: res.stats,
+                        userId: nextProps.userId
+                    }))
+                    .then(res => this.getTopHeroes(nextProps.count))
+                    .catch(err => console.log(err));
         }    
     }
 
@@ -96,7 +100,9 @@ export default class Stats extends Component {
     
     render() {
         return (
-            <div className="player-stats">{this.state.topHeroes}</div>
+            <div className="player-stats">
+                {this.state.topHeroes}
+            </div>
         );
     }
 }

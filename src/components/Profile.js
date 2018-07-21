@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { hostname } from '../config/server'
-import loader from '../img/loading_simple_blue.png';
+import Loader from './common/Loading';
 import '../css/Profile.css';
 
 export default class Profile extends Component {
@@ -11,7 +11,7 @@ export default class Profile extends Component {
             username: null,
             level: null,
             levelString: null,
-            portrait: loader,
+            portrait: <Loader altText="Player Portrait" />,
             userId: this.props.userId,
         }
     }
