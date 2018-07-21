@@ -20,7 +20,7 @@ yarn start
 ```
 
 ## Server
-*By default, the client application will point to my Heroku hosted version of the backend. Update the hostname value in `/src/components/Profile.js` and `/src/components/Stats.js` to localhost:5000 to test against a local instance.*
+*By default, the client application will point to my Heroku hosted version of the backend. Update the hostname value in `/src/config/server.js` to `http://localhost:5000` to test against a local instance.*
 
 ```none
 # Clone repo
