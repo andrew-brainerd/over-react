@@ -26,20 +26,18 @@
 }
 
 .hero-name {
+    cursor: default;
     font-size: 2em;
 }
 
 .hero-time {
+    cursor: default;
     font-size: 1em;
     opacity: 0.7;
     text-indent: 0.2em;
 }
 
 @media screen and (max-width: 700px) {
-    .hero {
-        text-align: center;
-    }
-
     .hero-name {
         font-size: 1em;
     }

@@ -29,7 +29,7 @@ export default class ProfilePage extends Component {
     render() {
         return (
             <div>
-                <div className="profile-grid">
+                <div className="player-profile-container">
                     <Profile userId={this.props.userId}>
                         <StatControls 
                             gameModeChange={this.getNewGameModeStats}
