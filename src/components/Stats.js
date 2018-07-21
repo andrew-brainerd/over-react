@@ -86,7 +86,7 @@ export default class Stats extends Component {
 
         this.setState({
             topHeroes: 
-                <ul className="playerTopHeroesList">
+                <ul className="player-top-heroes-list">
                     {topHeroesList}
                 </ul>
         });
@@ -94,9 +94,9 @@ export default class Stats extends Component {
     
     render() {
         return (
-            <div className="playerStats">
-                <h2 className="playerStatsHeader">{this.props.gameMode} Top Heroes</h2>
-                <div className="playerTopHeroes">{this.state.topHeroes}</div>
+            <div className="player-stats">
+                <h2 className="player-stats-header">{this.props.gameMode} Top Heroes</h2>
+                <div className="player-top-heroes">{this.state.topHeroes}</div>
             </div>
         );
     }

@@ -9,7 +9,7 @@ export default class ProfilePage extends Component {
         
         return (
             <div>
-                <div className="grid">
+                <div className="profile-grid">
                     <Profile userId={this.props.userId}>
                         <Stats userId={this.props.userId} gameMode="Quickplay" count='3' />
                         <Stats userId={this.props.userId} gameMode="Competitive" count='3' />

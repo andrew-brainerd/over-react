@@ -1,4 +1,4 @@
-.playerProfile {
+.player-profile {
     background: #405275;
     font-family: 'Open Sans', sans-serif;
     font-size: 28px;
@@ -7,23 +7,23 @@
     transition: 0.2s ease all;
 }
 
-.playerProfile:hover {
+.player-profile:hover {
     opacity: 1;
 }
 
-.playerInfo {
+.player-info {
     display: inline-block;
     vertical-align: top;
     width: 50%;
 }
 
-.playerProfile .playerName {
+.player-profile .player-name {
     color: #f99e1a;
     display: block;
     width: 50%;
 }
 
-.playerProfile .playerLevel {
+.player-profile .player-level {
     color: #f99e1a;
     display: block;
     font-size: 0.6em;
@@ -32,17 +32,17 @@
     width: 50%;
 }
 
-.playerPortrait {
+.player-portrait {
     display: inline-block;
     width: 150px;
 }
 
 @media screen and (max-width: 700px) {
-    .playerProfile {
+    .player-profile {
         font-size: 8vw;
     }
 
-    .playerInfo > div {
+    .player-info > div {
         display: block;
         margin-top: 15px;
     }

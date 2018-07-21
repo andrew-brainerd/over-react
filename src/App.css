@@ -1,18 +1,18 @@
 @media screen and (max-width: 700px) {
-    .profileList {
+    .profile-List {
         margin: auto;
         width: 95%;
     }
 }
 
 @media screen and (min-width: 1000px) {
-    .grid {
+    .profile-grid {
         display: grid;
         grid-template-columns: repeat( auto-fit, minmax(350px, 1fr) );
         grid-gap: 2rem;
     }
 
-    .profileList {
+    .profile-list {
         width: 95%;
     }
 }
