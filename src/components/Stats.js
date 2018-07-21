@@ -31,7 +31,9 @@ export default class Stats extends Component {
     }
 
     componentWillReceiveProps(nextProps) {
-        if (this.props.userId !== nextProps.userId) {
+        if (this.props.userId !== nextProps.userId ||
+            this.props.gameMode !== nextProps.gameMode ||
+            this.props.statType !== nextProps.statType) {
             this.getStats(nextProps.userId)
                 .then(res => this.setState({ 
                     username: res.username,
@@ -94,10 +96,7 @@ export default class Stats extends Component {
     
     render() {
         return (
-            <div className="player-stats">
-                <h2 className="player-stats-header">{this.props.gameMode} Top Heroes</h2>
-                <div className="player-top-heroes">{this.state.topHeroes}</div>
-            </div>
+            <div className="player-stats">{this.state.topHeroes}</div>
         );
     }
 }

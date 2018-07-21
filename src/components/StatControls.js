@@ -29,6 +29,8 @@ export default class StatControls extends Component {
             this.setState({
                 gameModeIndex: optionIndex
             });
+
+            this.props.gameModeChange(this.gameModes[optionIndex]);
             return this.gameModes[optionIndex];
         }
 
@@ -43,6 +45,8 @@ export default class StatControls extends Component {
             this.setState({
                 statTypeIndex: optionIndex
             });
+
+            this.props.statTypeChange(this.statTypes[optionIndex]);
             return this.statTypes[optionIndex];
         }
 
