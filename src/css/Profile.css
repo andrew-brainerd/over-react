@@ -36,14 +36,3 @@
     display: inline-block;
     width: 150px;
 }
-
-@media screen and (max-width: 700px) {
-    .player-profile {
-        font-size: 8vw;
-    }
-
-    .player-info > div {
-        display: block;
-        margin-top: 15px;
-    }
-}

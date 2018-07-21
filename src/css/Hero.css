@@ -37,18 +37,8 @@
     text-indent: 0.2em;
 }
 
-@media screen and (max-width: 700px) {
-    .hero-name {
-        font-size: 1em;
-    }
-}
-
 @media screen and (min-width: 1000px) {
     .hero {
         min-width: 300px;
-    }
-
-    .hero-name {
-        font-size: 1.5em;
     }
 }
