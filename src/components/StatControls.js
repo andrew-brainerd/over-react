@@ -1,25 +1,49 @@
 import React, { Component } from 'react';
-import Stats from './Stats';
-import OverwatchSelect from './OverwatchSelect'
+import OverwatchSelect from 'overwatch-settings-select';
 import '../css/StatControls.css';
 
 export default class StatControls extends Component {
     constructor(props) {
         super(props);
 
-        this.options = [
-            "Top Heroes",
-            "Other option 1",
-            "Other option 2",
-            "Other option 3"
+        this.gameModes = [
+            "Quickplay",
+            "Competitive"
+        ];
+            
+        this.statTypes = [
+            "Top Heroes"
         ];
 
-        this.label = null;
+        this.state = {
+            gameModeIndex: 0,
+            statTypeIndex: 0
+        }
     }
 
-    getOptionText = (optionIndex) => {
-        if (optionIndex <= this.options.length && optionIndex !== 0) {
-            return this.options[optionIndex];
+    getGameModeOptionText = (optionIndex) => {
+        let validIndex = (optionIndex <= this.gameModes.length);
+        let currentIndex = (optionIndex === this.state.gameModeIndex);
+
+        if (validIndex && !currentIndex) {
+            this.setState({
+                gameModeIndex: optionIndex
+            });
+            return this.gameModes[optionIndex];
+        }
+
+        return null;
+    }
+
+    getStatTypeOptionText = (optionIndex) => {
+        let validIndex = (optionIndex <= this.statTypes.length);
+        let currentIndex = (optionIndex === this.state.statTypeIndex);
+
+        if (validIndex && !currentIndex) {
+            this.setState({
+                statTypeIndex: optionIndex
+            });
+            return this.statTypes[optionIndex];
         }
 
         return null;
@@ -27,12 +51,21 @@ export default class StatControls extends Component {
 
     render() {
         return (
-            <div className="overwatch-select-container">
+            <div className="stat-controls">
+            <div className="stat-control-container">
                 <OverwatchSelect 
-                    options={this.options} 
-                    label={this.label} 
-                    getOptionText={this.getOptionText} 
+                    selectedIndex={this.state.gameModeIndex}
+                    onChange={this.getGameModeOptionText}
+                    options={this.gameModes}
                 />
+            </div>
+            <div className="stat-control-container">
+                <OverwatchSelect 
+                    selectedIndex={this.state.statTypeIndex}
+                    onChange={this.getStatTypeOptionText}
+                    options={this.statTypes}
+                />
+            </div>
             </div>
         );
     }

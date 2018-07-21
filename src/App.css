@@ -5,6 +5,12 @@
     }
 }
 
+@media screen and (max-width: 1000px) {
+    .profile-grid {
+        margin: 0 50px;
+    }
+}
+
 @media screen and (min-width: 1000px) {
     .profile-grid {
         display: grid;

@@ -6,32 +6,18 @@ export default class OverwatchSelect extends PureComponent {
         super(props);
 
         this.state = {
-            selectedIndex: 0,
-            selectedLabel: null
-        }
-    }
-
-    onChange = (index) => {
-        let newLabel = this.props.getOptionText(index);
-
-        this.setState({
-            selectedIndex: index,
-            selectedLabel: newLabel
-        });
-    }
-
-    componentWillReceiveProps(nextProps) {
-        if (this.props.selectedLabel !== nextProps.selectedLabel) {
-            return;
+            selectedIndex: 0
         }
     }
 
     render() {
-        return <Select 
-            selectedIndex={this.state.selectedIndex}
-            onChange={this.onChange}
-            options={this.props.options}
-            label={this.state.selectedLabel || this.props.label}
-        />
+        return (
+            <Select 
+                selectedIndex={this.state.selectedIndex}
+                onChange={this.props.onChange}
+                options={this.props.options}
+                label={this.props.label}
+            />
+        );
     }
 }

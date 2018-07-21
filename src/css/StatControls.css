@@ -7,7 +7,6 @@
 }
 
 .player-stats-container .SettingsSelect-select {
-    display: inline-block;
     left: 0;
     right: 0;
     top: -10px;
@@ -17,7 +16,11 @@
     width: 250px;
 }
 
-
 .player-stats-container .SettingsSelect-icon_container {
     left: 200px;
+}
+
+.stat-control-container {
+    display: inline-block;
+    width: 50%;
 }
