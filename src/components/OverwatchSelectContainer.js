@@ -7,6 +7,7 @@ export default class OverwatchSelectContainer extends Component {
         super(props);
 
         this.options = [
+            "-- Choose --",
             "something",
             "something else",
             "more something"
@@ -15,9 +16,21 @@ export default class OverwatchSelectContainer extends Component {
         this.label = "Options";
     }
 
+    getOptionText = (optionIndex) => {
+        if (optionIndex <= this.options.length && optionIndex !== 0) {
+            return this.options[optionIndex];
+        }
+
+        return null;
+    }
+
     render() {
         return <div className="overwatch-select-container">
-            <OverwatchSelect options={this.options} label={this.label} />
+            <OverwatchSelect 
+                options={this.options} 
+                label={this.label} 
+                getOptionText={this.getOptionText} 
+            />
         </div>
     }
 }
