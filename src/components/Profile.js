@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { hostname } from '../config/server'
 import loader from '../img/loading_simple_blue.png';
 import '../css/Profile.css';
 
@@ -13,8 +14,6 @@ export default class Profile extends Component {
             portrait: loader,
             userId: this.props.userId,
         }
-
-        this.hostname = "https://over-react-backend.herokuapp.com";
     }
 
     componentDidMount() {
@@ -54,7 +53,7 @@ export default class Profile extends Component {
     getProfile = async(userId) => {
         console.log(`Getting User Profile for ${userId}`);
 
-        const response = await fetch(`${this.hostname}/api/profile/${userId}`);
+        const response = await fetch(`${hostname}/api/profile/${userId}`);
         const body = await response.json();
 
         if (response.status !== 200) {

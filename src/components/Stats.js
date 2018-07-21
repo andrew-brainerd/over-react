@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { hostname } from '../config/server'
 import Hero from './Hero';
 import '../css/Stats.css';
 
@@ -14,8 +15,6 @@ export default class Stats extends Component {
             topHeroes: null,
             userId: this.props.userId
         }
-
-        this.hostname = "https://over-react-backend.herokuapp.com";
     }
 
     componentDidMount() {
@@ -49,7 +48,7 @@ export default class Stats extends Component {
     getStats = async(userId) => {
         console.log(`Getting User Stats for ${userId}`);
 
-        const response = await fetch(`${this.hostname}/api/stats/${userId}`);
+        const response = await fetch(`${hostname}/api/stats/${userId}`);
         const body = await response.json();
 
         if (response.status !== 200) {
