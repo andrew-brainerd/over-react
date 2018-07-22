@@ -63,7 +63,7 @@ export default class StatControls extends Component {
                     options={this.gameModes}
                 />
             </div>
-            <div className="stat-control-container">
+            <div className="stat-control-container right">
                 <OverwatchSelect 
                     selectedIndex={this.state.statTypeIndex}
                     onChange={this.getStatTypeOptionText}
