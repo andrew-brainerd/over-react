@@ -50,7 +50,8 @@ table {
 /* over-react */
 html {
 	background: url(img/bg_1.jpg) no-repeat center center fixed;
-    background-size: cover;
+	background-size: cover;
+	overflow-y: scroll;
 }
 
 body {
