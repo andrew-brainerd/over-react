@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import * as profileActions from '../actions/profileActions';
 import Profile from './Profile';
 import StatControls from './StatControls';
 import Stats from './Stats';
 
-export default class ProfilePage extends Component {
+class ProfilePage extends Component {
     constructor(props) {
         super(props);
 
@@ -15,9 +17,9 @@ export default class ProfilePage extends Component {
     }
 
     getNewGameModeStats = (newGameMode) => {
-        this.setState({
-            gameMode: newGameMode
-        });
+        this.props.dispatch(
+            profileActions.updateGameMode(newGameMode)
+        );
     }
 
     getNewStatTypeStats = (newStatType) => {
@@ -37,7 +39,7 @@ export default class ProfilePage extends Component {
                         />
                         <Stats 
                             userId={this.props.userId} 
-                            gameMode={this.state.gameMode}
+                            gameMode={this.props.gameMode}
                             statType={this.state.statType}
                             count={this.state.resultCount} 
                         />
@@ -47,3 +49,11 @@ export default class ProfilePage extends Component {
         );
     }
 }
+
+function mapStateToProps(state, ownProps) {
+    return {
+        gameMode: state.profile.gameMode
+    };
+}
+
+export default connect(mapStateToProps)(ProfilePage);
