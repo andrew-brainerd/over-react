@@ -24,3 +24,11 @@
     display: inline-block;
     width: 50%;
 }
+
+.SettingsSelect-list_item {
+    width: 275px;
+}
+
+body {
+    padding-right: 0 !important;
+}

@@ -6,16 +6,6 @@ import StatControls from './StatControls';
 import Stats from './Stats';
 
 class ProfilePage extends Component {
-    constructor(props) {
-        super(props);
-
-        this.state = {
-            gameMode: "Quickplay",
-            statType: null,
-            resultCount: "5"
-        }
-    }
-
     getNewGameModeStats = (newGameMode) => {
         this.props.dispatch(
             profileActions.updateGameMode(newGameMode)
@@ -23,9 +13,9 @@ class ProfilePage extends Component {
     }
 
     getNewStatTypeStats = (newStatType) => {
-        this.setState({
-            statType: newStatType
-        });
+        this.props.dispatch(
+            profileActions.updateStatType(newStatType)
+        );
     }
 
     render() {
@@ -37,11 +27,11 @@ class ProfilePage extends Component {
                             gameModeChange={this.getNewGameModeStats}
                             statTypeChange={this.getNewStatTypeStats}
                         />
-                        <Stats 
-                            userId={this.props.userId} 
+                        <Stats
+                            userId={this.props.userId}
                             gameMode={this.props.gameMode}
-                            statType={this.state.statType}
-                            count={this.state.resultCount} 
+                            statType={this.props.statType}
+                            count={this.props.resultCount}
                         />
                     </Profile>
                 </div>
@@ -52,7 +42,8 @@ class ProfilePage extends Component {
 
 function mapStateToProps(state, ownProps) {
     return {
-        gameMode: state.profile.gameMode
+        gameMode: state.profile.gameMode,
+        statType: state.profile.statType,
     };
 }
 
