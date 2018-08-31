@@ -1,0 +1,21 @@
+.team-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.team-container .player-profile {
+    max-width: 450px;
+}
+
+.team-container .player-portrait img {
+    width: 80px;
+}
+
+.team-container .player-profile {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 24px;
+    margin: 10px auto;
+    padding: 25px;
+    width: 350px;
+}

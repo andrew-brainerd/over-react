@@ -8,7 +8,7 @@ import './index.css';
 
 const store = configureStore({
     profile: {
-        gameMode: "Quickplay"
+        gameMode: "Competitive"
     }
 });
 
@@ -17,4 +17,5 @@ ReactDOM.render(
         <App />
     </Provider>, 
     document.getElementById('root'));
+
 registerServiceWorker();
