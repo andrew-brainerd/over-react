@@ -14,7 +14,12 @@ class TeamPage extends Component {
             'Bowerry-1227',
             'HunkuChunku-2221',
             'Boone-11892',
-            'Jerms-11197'
+            'Jerms-11197',
+            'Nift-11755',
+            'awesomedog-11605',
+            // 'Ness-11713',
+            'Echo419-11891',
+            'Thisword-1124'
         ];
     }
 
