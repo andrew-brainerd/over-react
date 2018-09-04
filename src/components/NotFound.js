@@ -1,13 +1,13 @@
-import React, { Component } from 'react';
+import React from 'react';
 import Header from './common/Header';
 
-export default class NotFound extends Component {
-    render() {
-        return (
-            <div>
-                <Header />
-                <h1>Page Not Found</h1>
-            </div>
-        )
-    }
+const NotFound = (props) => {
+    return (
+        <div className="not-found-container">
+            <Header />
+            <h1>Page Not Found</h1>
+        </div>
+    );
 }
+
+export default NotFound;

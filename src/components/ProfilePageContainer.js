@@ -3,7 +3,7 @@ import ProfilePage from './ProfilePage';
 
 const ProfilePageContainer = ({ match }) => (
     <div className="player-page">
-      <ProfilePage userId={match.params.id} />
+        <ProfilePage userId={match.params.id} />
     </div>
 );
 

@@ -13,7 +13,8 @@ class TeamPage extends Component {
         this.team = [
             'Bowerry-1227',
             'HunkuChunku-2221',
-            'Boone-11892'
+            'Boone-11892',
+            'Jerms-11197'
         ];
     }
 

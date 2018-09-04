@@ -22,8 +22,8 @@ export default class StatControls extends Component {
     }
 
     getGameModeOptionText = (optionIndex) => {
-        let validIndex = (optionIndex <= this.gameModes.length);
-        let currentIndex = (optionIndex === this.state.gameModeIndex);
+        const validIndex = (optionIndex <= this.gameModes.length);
+        const currentIndex = (optionIndex === this.state.gameModeIndex);
 
         if (validIndex && !currentIndex) {
             this.setState({
@@ -38,8 +38,8 @@ export default class StatControls extends Component {
     }
 
     getStatTypeOptionText = (optionIndex) => {
-        let validIndex = (optionIndex <= this.statTypes.length);
-        let currentIndex = (optionIndex === this.state.statTypeIndex);
+        const validIndex = (optionIndex <= this.statTypes.length);
+        const currentIndex = (optionIndex === this.state.statTypeIndex);
 
         if (validIndex && !currentIndex) {
             this.setState({

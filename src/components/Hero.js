@@ -1,18 +1,22 @@
-import React, { Component } from 'react';
+import React from 'react';
 import '../css/Hero.css';
 
-export default class Hero extends Component {
-    render() {
-        return (
-            <div className="hero">
-                <div className="hero-image">
-                    <img src={this.props.image} alt={this.props.name} />
+const Hero = (props) => {
+    return (
+        <div className="hero">
+            <div className="hero-image">
+                <img src={props.image} alt={props.name} />
+            </div>
+            <div>
+                <div className="hero-name">
+                    {props.name}
                 </div>
-                <div>
-                    <div className="hero-name">{this.props.name}</div>
-                    <div className="hero-time">{this.props.time}</div>
+                <div className="hero-time">
+                    {props.time}
                 </div>
             </div>
-        );
-    }
+        </div>
+    );
 }
+
+export default Hero;
