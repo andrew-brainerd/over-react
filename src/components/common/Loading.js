@@ -1,3 +1,4 @@
+import { string } from 'prop-types';
 import React from 'react';
 import loader from '../../img/loading_simple_blue.png';
 import '../../css/Loading.css';
@@ -8,6 +9,10 @@ const Loading = (props) => {
             <img src={loader} alt={props.altText} />
         </div>
     );
+}
+
+Loading.propTypes = {
+    altText: string.isRequired
 }
 
 export default Loading;

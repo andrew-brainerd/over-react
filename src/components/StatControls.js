@@ -1,3 +1,4 @@
+import { string, func } from 'prop-types';
 import React, { Component } from 'react';
 import OverwatchSelect from 'overwatch-settings-select';
 import '../css/StatControls.css';
@@ -16,14 +17,14 @@ export default class StatControls extends Component {
         ];
 
         this.state = {
-            gameModeIndex: 0,
+            gameModeIndex: this.gameModes[this.props.gameMode] || 0,
             statTypeIndex: 0
         }
     }
 
-    getGameModeOptionText = (optionIndex) => {
-        const validIndex = (optionIndex <= this.gameModes.length);
-        const currentIndex = (optionIndex === this.state.gameModeIndex);
+    getGameModeOptionText = optionIndex => {
+        const validIndex = optionIndex <= this.gameModes.length;
+        const currentIndex = optionIndex === this.state.gameModeIndex;
 
         if (validIndex && !currentIndex) {
             this.setState({
@@ -37,9 +38,9 @@ export default class StatControls extends Component {
         return null;
     }
 
-    getStatTypeOptionText = (optionIndex) => {
-        const validIndex = (optionIndex <= this.statTypes.length);
-        const currentIndex = (optionIndex === this.state.statTypeIndex);
+    getStatTypeOptionText = optionIndex => {
+        const validIndex = optionIndex <= this.statTypes.length;
+        const currentIndex = optionIndex === this.state.statTypeIndex;
 
         if (validIndex && !currentIndex) {
             this.setState({
@@ -73,4 +74,10 @@ export default class StatControls extends Component {
             </div>
         );
     }
+}
+
+StatControls.propTypes = {
+    gameMode: string,
+    gameModeChange: func.isRequired,
+    statTypeChange: func.isRequired
 }

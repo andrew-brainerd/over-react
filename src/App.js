@@ -12,7 +12,7 @@ export default class App extends Component {
       <Router>
         <Switch>
           <Route exact path='/' render={(props) => (
-            <ProfilePage {...props} userId="Boone-11892" />
+            <ProfilePage {...props} userId={'Boone-11892'} gameMode={'Quickplay'} />
           )}/>
           <Route path='/oculus' component={TeamPage} />
           <Route path='/profile/:id' component={ProfilePageContainer} />

@@ -1,3 +1,4 @@
+import { string } from 'prop-types';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Profile from './Profile';
@@ -17,7 +18,6 @@ class TeamPage extends Component {
             'Jerms-11197',
             'Nift-11755',
             'awesomedog-11605',
-            // 'Ness-11713',
             'Echo419-11891',
             'Thisword-1124'
         ];
@@ -29,7 +29,7 @@ class TeamPage extends Component {
                 <Profile key={member} userId={member}>
                     <Stats
                         userId={member}
-                        gameMode={this.props.gameMode}
+                        gameMode={'Competitive'}
                         statType={this.props.statType}
                         count={this.resultCount}
                     />
@@ -50,6 +50,10 @@ function mapStateToProps(state, ownProps) {
         gameMode: state.profile.gameMode,
         statType: state.profile.statType,
     };
+}
+
+TeamPage.propTypes = {
+    stateType: string
 }
 
 export default connect(mapStateToProps)(TeamPage);

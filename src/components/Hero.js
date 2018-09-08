@@ -1,3 +1,4 @@
+import { string } from 'prop-types';
 import React from 'react';
 import '../css/Hero.css';
 
@@ -17,6 +18,12 @@ const Hero = (props) => {
             </div>
         </div>
     );
+}
+
+Hero.propTypes = {
+    image: string,
+    name: string,
+    time: string
 }
 
 export default Hero;

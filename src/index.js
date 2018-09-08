@@ -8,7 +8,7 @@ import './index.css';
 
 const store = configureStore({
     profile: {
-        gameMode: "Competitive"
+        gameMode: 'Quickplay'
     }
 });
 

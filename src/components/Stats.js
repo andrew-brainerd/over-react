@@ -1,5 +1,6 @@
+import { string, number } from 'prop-types';
 import React, { Component } from 'react';
-import { hostname } from '../config/server'
+import { hostname } from '../config/server';
 import Hero from './Hero';
 import Loader from './common/Loading';
 import '../css/Stats.css';
@@ -52,8 +53,6 @@ export default class Stats extends Component {
     }
 
     getStats = async(userId) => {
-        console.log(`Getting User Stats for ${userId}`);
-
         const response = await fetch(`${hostname}/api/stats/${userId}`);
         const body = await response.json();
 
@@ -65,8 +64,6 @@ export default class Stats extends Component {
     }
 
     getTopHeroes(count) {
-        console.log(`Getting Top Heroes for ${this.props.gameMode}`);
-
         var topHeroesList = [];
         var topHeroCount = 0;
         var maxTopHeroCount = count || 100;
@@ -105,4 +102,11 @@ export default class Stats extends Component {
             </div>
         );
     }
+}
+
+Stats.propTypes = {
+    userId: string.isRequired,
+    gameMode: string,
+    statType: string,
+    count: number
 }
