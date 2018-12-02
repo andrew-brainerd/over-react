@@ -1,7 +1,9 @@
-export function updateGameMode(gameMode) {
-    return { type: 'UPDATE_GAME_MODE', gameMode };
-}
+export const updateGameMode = gameMode => ({
+    type: 'UPDATE_GAME_MODE',
+    gameMode
+});
 
-export function updateStatType(statType) {
-    return { type: 'UPDATE_STAT_TYPE', statType };
-}
+export const updateStatType = statType => ({
+    type: 'UPDATE_STAT_TYPE',
+    statType
+});

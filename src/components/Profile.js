@@ -1,5 +1,6 @@
+import { string } from 'prop-types';
 import React, { Component } from 'react';
-import { hostname } from '../config/server'
+import { hostname } from '../config/server';
 import Loader from './common/Loading';
 import '../css/Profile.css';
 
@@ -51,8 +52,6 @@ export default class Profile extends Component {
     }
 
     getProfile = async(userId) => {
-        console.log(`Getting User Profile for ${userId}`);
-
         const response = await fetch(`${hostname}/api/profile/${userId}`);
         const body = await response.json();
 
@@ -79,4 +78,8 @@ export default class Profile extends Component {
             </div>
         );
     }
+}
+
+Profile.propTypes = {
+    userId: string.isRequired
 }

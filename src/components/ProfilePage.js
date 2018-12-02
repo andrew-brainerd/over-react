@@ -1,3 +1,4 @@
+import { string, number } from 'prop-types';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import * as profileActions from '../actions/profileActions';
@@ -6,13 +7,13 @@ import StatControls from './StatControls';
 import Stats from './Stats';
 
 class ProfilePage extends Component {
-    getNewGameModeStats = (newGameMode) => {
+    getNewGameModeStats = newGameMode => {
         this.props.dispatch(
             profileActions.updateGameMode(newGameMode)
         );
     }
 
-    getNewStatTypeStats = (newStatType) => {
+    getNewStatTypeStats = newStatType => {
         this.props.dispatch(
             profileActions.updateStatType(newStatType)
         );
@@ -40,11 +41,16 @@ class ProfilePage extends Component {
     }
 }
 
-function mapStateToProps(state, ownProps) {
-    return {
-        gameMode: state.profile.gameMode,
-        statType: state.profile.statType,
-    };
+const mapStateToProps = state => ({
+    gameMode: state.profile.gameMode,
+    statType: state.profile.statType
+});
+
+ProfilePage.propTypes = {
+    userId: string.isRequired,
+    gameMode: string,
+    statType: string,
+    resultCount: number
 }
 
 export default connect(mapStateToProps)(ProfilePage);
