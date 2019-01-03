@@ -38,7 +38,7 @@ export default class Stats extends Component {
         
         return (
             <div className="player-stats">
-                { statType === "combat" ?
+                { statList ?
                     <SimpleStatList list={statList} /> :
                     <Loader altText="Invalid Stat Type" />
                 }

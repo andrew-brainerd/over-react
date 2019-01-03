@@ -21,21 +21,19 @@ class ProfilePage extends Component {
 
     render() {
         return (
-            <div>
-                <div className="player-profile-container">
-                    <Profile userId={this.props.userId}>
-                        <StatControls 
-                            gameModeChange={this.getNewGameModeStats}
-                            statTypeChange={this.getNewStatTypeStats}
-                        />
-                        <Stats
-                            userId={this.props.userId}
-                            gameMode={this.props.gameMode}
-                            statType={this.props.statType}
-                            count={this.props.resultCount}
-                        />
-                    </Profile>
-                </div>
+            <div className="player-profile-container">
+                <Profile userId={this.props.userId}>
+                    <StatControls
+                        gameModeChange={this.getNewGameModeStats}
+                        statTypeChange={this.getNewStatTypeStats}
+                    />
+                    <Stats
+                        userId={this.props.userId}
+                        gameMode={this.props.gameMode}
+                        statType={this.props.statType}
+                        count={this.props.resultCount}
+                    />
+                </Profile>
             </div>
         );
     }

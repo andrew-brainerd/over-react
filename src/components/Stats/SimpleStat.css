@@ -1,0 +1,17 @@
+.simple-stat {
+    color: whitesmoke;
+    margin: 15px;
+}
+
+.simple-stat-title, .simple-stat-value {
+    display: inline-block;
+}
+
+.simple-stat-title {
+    width: 75%;
+}
+
+.simple-stat-value {
+    text-align: right;
+    width: 25%;
+}
