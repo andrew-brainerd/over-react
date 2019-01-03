@@ -1,10 +1,10 @@
 import { string, number } from 'prop-types';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import * as profileActions from '../actions/profileActions';
+import * as profileActions from '../../actions/profileActions';
 import Profile from './Profile';
-import StatControls from './StatControls';
-import Stats from './Stats';
+import StatControls from '../Stats/StatControls';
+import Stats from '../Stats/Stats';
 
 class ProfilePage extends Component {
     getNewGameModeStats = newGameMode => {

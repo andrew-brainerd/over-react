@@ -1,6 +1,6 @@
 import { string } from 'prop-types';
 import React from 'react';
-import '../css/Hero.css';
+import './Hero.css';
 
 const Hero = props => {
     return (

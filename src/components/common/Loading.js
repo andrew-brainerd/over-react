@@ -1,7 +1,7 @@
 import { string } from 'prop-types';
 import React from 'react';
 import loader from '../../img/loading_simple_blue.png';
-import '../../css/Loading.css';
+import './Loading.css';
 
 const Loading = props => {
     return (

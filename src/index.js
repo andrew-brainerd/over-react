@@ -8,6 +8,7 @@ import './index.css';
 
 const store = configureStore({
     profile: {
+        statType: 'combat',
         gameMode: 'Quickplay'
     }
 });

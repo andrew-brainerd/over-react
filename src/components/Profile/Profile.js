@@ -1,8 +1,8 @@
 import { string } from 'prop-types';
 import React, { Component } from 'react';
-import { getProfile } from '../api/Profile';
-import Loader from './common/Loading';
-import '../css/Profile.css';
+import { getProfile } from '../../api/Profile';
+import Loader from '../common/Loading';
+import './Profile.css';
 
 export default class Profile extends Component {
     constructor(props) {
