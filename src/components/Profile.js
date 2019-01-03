@@ -1,6 +1,6 @@
 import { string } from 'prop-types';
 import React, { Component } from 'react';
-import { hostname } from '../config/server';
+import { getProfile } from '../api/Profile';
 import Loader from './common/Loading';
 import '../css/Profile.css';
 
@@ -12,61 +12,41 @@ export default class Profile extends Component {
             username: null,
             level: null,
             levelString: null,
-            portrait: <Loader altText="Player Portrait" />,
-            userId: this.props.userId,
+            portrait: null,
         }
     }
 
     componentDidMount() {
-        this.getProfile(this.props.userId)
-            .then(res => this.setState({ 
-                username: res.info.username,
-                level: res.info.level,
-                levelString: `Lvl ${res.info.level}`,
-                portrait: res.info.portrait
-            }))
-            .then(() => {
-                this.setState({
-                    userId: this.props.userId
-                })
-            })
+        getProfile(this.props.userId)
+            .then(profile => this.refresh(profile))
             .catch(err => console.log(err));
     }
 
     componentWillReceiveProps(nextProps) {
         if (this.props.userId !== nextProps.userId) {
-            this.getProfile(nextProps.userId)
-                .then(res => this.setState({ 
-                    username: res.info.username,
-                    level: res.info.level,
-                    levelString: `Lvl ${res.info.level}`,
-                    portrait: res.info.portrait
-                }))
-                .then(() => {
-                    this.setState({
-                        userId: nextProps.userId
-                    })
-                })
+            getProfile(nextProps.userId)
+                .then(profile => this.refresh(profile))
                 .catch(err => console.log(err));
         }
     }
 
-    getProfile = async(userId) => {
-        const response = await fetch(`${hostname}/api/profile/${userId}`);
-        const body = await response.json();
-
-        if (response.status !== 200) {
-            throw Error(`Failed to fetch user profile | ${body.message}`);
-        }
-
-        return body;
+    refresh(profile) {
+        this.setState({
+            username: profile.info.username,
+            level: profile.info.level,
+            levelString: `Lvl ${profile.info.level}`,
+            portrait: profile.info.portrait
+        });
     }
-    
+
     render() {
         return (
             <div className="player-profile">
                 <div className="player-portrait">
-                    <img src={this.state.portrait} alt="Player Profile" />
+                    { this.state.portrait ?
+                        <img src={this.state.portrait} alt="Player Profile" /> : 
+                        <Loader altText="Player Portrait" />
+                    }
                 </div>
                 <div className="player-info">
                     <div className="player-name">{this.state.username}</div>
